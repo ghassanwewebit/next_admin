@@ -1,0 +1,170 @@
+[
+    {
+        "title": " Dashboard",
+        "icon": "nav-icon fas fa-tachometer-alt",
+        "childrens": [
+            {
+                "title": "Dashboard v1",
+                "icon": "far fa-circle nav-icon",
+                "path": "pages/charts/chartjs.html"
+            },
+            {
+                "title": "Dashbosdsdard v1",
+                "icon": "far fa-circle nav-icon",
+                "path": "/pages/charts"
+            }
+    
+        ]
+    },
+    {
+        "title": " Pages",
+        "icon": "nav-icon fas fa-book",
+        "childrens": [
+            {
+                "title": " All Pages",
+                "icon": "far fa-bookmark nav-icon",
+                "path": "/admin/dashboard/pages"
+            },
+            {
+                "title": "Add page",
+                "icon": "far fa-calendar-plus nav-icon",
+                "path": "/admin/dashboard/pages/addpage"
+            }
+    
+        ]
+    },
+    {
+        "title": " Users",
+        "icon": "nav-icon fas fa-user",
+        "childrens": [
+            {
+                "title": " AllUsers",
+                "icon": "far fa-circle nav-icon",
+                "path": "pages/charts/chartjs.html"
+            },
+            {
+                "title": "Addusers",
+                "icon": "far fa-circle nav-icon",
+                "path": "/pages/charts"
+            }
+    
+        ]
+    },
+
+    {
+        "title": " Form",
+        "icon": "nav-icon fas fa-edit",
+        "childrens": [
+            {
+                "title": " AllUsers",
+                "icon": "far fa-sitting nav-icon",
+                "path": "pages/charts/chartjs.html"
+            },
+            {
+                "title": "Addusers",
+                "icon": "far fa-circle nav-icon",
+                "path": "/pages/charts"
+            }
+    
+        ]
+    },
+    {
+        "title": " Posts",
+        "icon": "nav-icon fas fa-edit",
+        "childrens": [
+            {
+                "title": " AllUsers",
+                "icon": "far fa-sitting nav-icon",
+                "path": "pages/charts/chartjs.html"
+            },
+            {
+                "title": "Addusers",
+                "icon": "far fa-circle nav-icon",
+                "path": "/pages/charts"
+            }
+    
+        ]
+    },
+    {
+        "title": " Plugin",
+        "icon": "nav-icon fas fa-edit",
+        "childrens": [
+            {
+                "title": " AllUsers",
+                "icon": "far fa-sitting nav-icon",
+                "path": "pages/charts/chartjs.html"
+            },
+            {
+                "title": "Addusers",
+                "icon": "far fa-circle nav-icon",
+                "path": "/pages/charts"
+            }
+    
+        ]
+    },
+    {
+        "title": " Editor",
+        "icon": "nav-icon fas fa-edit",
+        "childrens": [
+            {
+                "title": " AllUsers",
+                "icon": "far fa-sitting nav-icon",
+                "path": "pages/charts/chartjs.html"
+            },
+            {
+                "title": "Addusers",
+                "icon": "far fa-circle nav-icon",
+                "path": "/pages/charts"
+            }
+    
+        ]
+    },
+    {
+        "title": " Tools",
+        "icon": "nav-icon fas fa-edit",
+        "childrens": [
+            {
+                "title": " AllUsers",
+                "icon": "far fa-sitting nav-icon",
+                "path": "pages/charts/chartjs.html"
+            },
+            {
+                "title": "Addusers",
+                "icon": "far fa-circle nav-icon",
+                "path": "/pages/charts"
+            }
+    
+        ]
+    },
+    {
+        "title": " Setting",
+        "icon": "nav-icon fas fa-heart",
+        "childrens": [
+            {
+                "title": " logout",
+                "icon": "far fa-hand-peace nav-icon",
+                "path": "/"
+            },
+            {
+                "title": "register",
+                "icon": "far fa-registered nav-icon",
+                "path": "/admin/register"
+            },
+            {
+                "title": "Contact us",
+                "icon": "far fa-registered nav-icon",
+                "path": "/admin/dashboard/contactUs"
+            },
+            {
+                "title": "Profile",
+                "icon": "far fa-registered nav-icon",
+                "path": "/admin/dashboard/Profile"
+            }
+    
+        ]
+    }
+
+
+   
+
+]

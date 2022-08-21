@@ -1,0 +1,21 @@
+.toast-demo button {
+    min-width: 10rem !important;
+    margin-right: .5rem  !important;
+}
+
+@media screen and (max-width: 960px) {
+    .toast-demo button {
+        width: 100%;
+        margin-bottom: .5rem;
+    }
+}
+
+
+.dropdown-demo .p-dropdown {
+    width: 14rem !important;
+}
+
+.dropdown-demo .country-item-value img.flag {
+    width: 17px !important;
+}
+                 

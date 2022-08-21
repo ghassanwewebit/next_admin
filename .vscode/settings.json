@@ -1,0 +1,28 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"prettier.tabWidth": 50,
+	"prettier.printWidth": 200,
+	"vue3snippets.tabWidth": 1,
+	"prettier.useTabs": true,
+	"workbench.editor.splitInGroupLayout": "vertical",
+	"workbench.iconTheme": "Monokai Classic Icons",
+	"sass.andStared": [
+
+		"active",
+		"focus",
+		"hover",
+		"nth-child"
+	],
+	"liveSassCompile.settings.formats": [
+		
+
+
+		{
+			"format": "expanded",
+			"extensionName": ".css",
+			"savePath": "public/css/style.global.css",
+		}
+	],
+	"liveServer.settings.donotShowInfoMsg": true,
+	"javascript.updateImportsOnFileMove.enabled": "always"
+}
