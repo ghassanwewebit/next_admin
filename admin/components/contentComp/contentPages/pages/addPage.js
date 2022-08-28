@@ -52,7 +52,7 @@ const AddPageSubmitHandler= async(e)=>{
 
  if(pageName || Descriptions || SectionNumber){
 
-  const loginApi = await fetch(`http://localhost:3000/api/admin/addpage`, {
+  const loginApi = await fetch(`/api/admin/addpage`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',

@@ -37,7 +37,7 @@ export default function Register(){
         agree
        }
        
-      const loginApi = await fetch(`http://localhost:3000/api/admin/register`, {
+      const loginApi = await fetch(`${process.env.NEXT_API}api/admin/register`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',

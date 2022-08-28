@@ -13,7 +13,7 @@ export default  function PagesTables(props){
   }
 
    async function deletePageHandler(id){
-      const deletepage = await fetch("http://localhost:3000/api/admin/addpage",{
+      const deletepage = await fetch(`${process.env.NEXT_API}api/admin/addpage`,{
          method:"DELETE",
          headers: {
             Accept: 'application/json',

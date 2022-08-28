@@ -59,7 +59,7 @@ export default function PageDetails(props) {
 
     }
     const deletePostHandler= async(pageID,postID)=>{
-        await fetch('http://localhost:3000/api/admin/posts/deletePosts',
+        await fetch(`${process.env.NEXT_API}api/admin/posts/deletePosts`,
                     {
                         method:"DELETE",
                         headers: {

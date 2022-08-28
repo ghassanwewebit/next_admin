@@ -23,7 +23,7 @@ const sidebarChildren=()=>{
     return(
 
         <li className={`nav-item  ${showSideBar?"menu-open":""}`} onClick={toggelsideBarHandler} >
-        <a href="#" className="nav-link">
+        <a  className="nav-link">
           <i className={props.sidebar.icon}></i>
           <p>
             {props.sidebar.title}

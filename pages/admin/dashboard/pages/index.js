@@ -14,14 +14,16 @@ export default function allPages(props){
 
 
 export async function getServerSideProps(context) {
-     const getPages= await fetch("http://localhost:3000/api/admin/addpage").then(res=>res.json())
+  console.log("context",process.env.Host)
+  console.log("process.env.NEXT_API",process.env.NEXT_API)
+     const getPages= await fetch(`${process.env.NEXT_API}api/admin/addpage`).then(res=>res.json())
      .catch(error => {
          console.error('Error:', error);
        });
       //  console.log("getPages",getPages.body)
      return {
        props: {
-        pages: getPages.body 
+        pages: getPages?.body 
        }, // will be passed to the page component as props
      }
    }

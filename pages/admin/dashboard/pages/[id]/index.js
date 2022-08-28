@@ -60,7 +60,7 @@ export default  function PageID(props){
 export async function getServerSideProps(context){
     const currentPageID=context.query.id
     
-   const getAllPostForThisPage= await fetch("http://localhost:3000/api/admin/posts/getPostsBYPageID",{
+   const getAllPostForThisPage= await fetch(`${process.env.NEXT_API}api/admin/posts/getPostsBYPageID`,{
         method: 'POST',
         headers: {
           Accept: 'application/json',
