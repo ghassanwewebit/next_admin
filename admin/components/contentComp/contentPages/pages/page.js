@@ -1,26 +1,64 @@
-import { useEffect } from "react";
+import { useEffect ,useRef} from "react";
+import Link from "next/link";
+import { Dialog } from 'primereact/dialog';
+import { Toast } from 'primereact/toast';
 
 export default  function PagesTables(props){
-    // console.log("props",props.allpaged);
+   const toast = useRef(null);
+   const showSuccess = () => {
+      toast.current.show({severity:'success', summary: 'deleteing page', detail:'page delete successfly', life: 3000});
+  }
+  const showError = () => {
+      toast.current.show({severity:'error', summary: 'Error Message', detail:'Message Content', life: 3000});
+  }
 
-useEffect(()=>{
+   async function deletePageHandler(id){
+      const deletepage = await fetch("http://localhost:3000/api/admin/addpage",{
+         method:"DELETE",
+         headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body:JSON.stringify(id)
+      }).then(res=>{
+         if(res.statusText=="OK"){
+            showSuccess()
+         }
+      })
+      
+      .catch(error => {
+          console.error('Error:', error);
+          showError()
+        });
+        console.log("deletepage",deletepage);
+   }
 
-    const getAllPages =async()=>{
-        const getPages=fetch("http://localhost:3000/api/admin/addpage").then(res=>res.json()
-        ).then(Data=>{return Data})
-        .catch(error => {
-            console.error('Error:', error);
-          });
-          console.log("getPages,", await getPages);
-    }
-
-  getAllPages()
-},[])
-
-    return (
+   const renderAllPagesHandler=()=>{
+      return props.pages?.map(page=>{
+         return (
+            <tr key={page._id}>
+            <td>#</td>
+            <td>{page.page_name}</td>
+            <td>{page.descriptions}</td>
+            <td className="project_progress">{page.Section_number}</td>
+            <td className="project-state">{page.header_and_footer}</td>
+            <td className="project-actions  d-flex justify-content-around ">
+               <button className="btn btn-primary btn-sm" ><i className="fas fa-folder"></i>View </button>
+              <Link href={`/admin/dashboard/pages/${page._id}`}   className="btn btn-info btn-sm" >  Edit</Link>
+               <button className="btn btn-danger btn-sm" onClick={(e)=>deletePageHandler(page._id)}><i className="fas fa-trash"></i>Delete</button>
+            </td>
+         </tr>
+         )
+      })
+   }
+    return ( 
+      <>
+      
+      <Toast ref={toast} />
 
 
         <table className="table table-striped projects">
+         
                   <thead>
                      <tr>
                         <th style={{width: "1%"}}>#</th>
@@ -32,38 +70,12 @@ useEffect(()=>{
                      </tr>
                   </thead>
                   <tbody>
-                     <tr>
-                        <td>#</td>
-                        <td></td>
-                        <td></td>
-                        <td className="project_progress"></td>
-                        <td className="project-state"></td>
-                        <td className="project-actions  d-flex justify-content-around ">
-                           <a className="btn btn-primary btn-sm" href="#"><i className="fas fa-folder"></i>View </a>
-                           <a className="btn btn-info btn-sm" href="#"><i className="fas fa-pencil-alt"></i> Edit</a>
-                           <a className="btn btn-danger btn-sm" href="#"><i className="fas fa-trash"></i>Delete</a>
-                        </td>
-                     </tr>
+                   {renderAllPagesHandler()}
                   </tbody>
                </table>
+</>
+
     )
 }
 
 
-// export async function getStaticProps() {
-//     console.log("asdasdasdasdasd");
-
-//     const getPages=fetch("http://localhost:3000/api/admin/addpage").then(res=>res.json()
-//     ).then(Data=>{return Data})
-//     .catch(error => {
-//         console.error('Error:', error);
-//       });
-
-//     const JsonPages= getPages.body
-//     console.log("JsonPages",JsonPages);
-//     return {
-//       props: {
-//         allpaged:JsonPages
-//       }, // will be passed to the page component as props
-//     }
-//   }

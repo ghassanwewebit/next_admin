@@ -1,8 +1,11 @@
-// import '../styles/adminStyle/adminlte.min.css'
-// import './../public/plugins/fontawesome-free/css/all.min.css'
-// import '../styles/adminStyle/adminError.css'
-// import "primereact/resources/primereact.min.css";                  //core css
-// import "primeicons/primeicons.css"; 
+import '../styles/adminStyle/adminError.css'
+import './../styles/adminStyle/primeReact.css'
+import './../public/fontawesome/css/all.min.css'
+
+import './../styles/adminStyle/adminlte.css'
+import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css";    
 // import dynamic from 'next/dynamic';
 // dynamic(()=>import('../styles/adminStyle/adminlte.min.css'))
 // dynamic(()=>import('./../public/plugins/fontawesome-free/css/all.min.css'))

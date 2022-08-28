@@ -1,25 +1,35 @@
 const { connectToDatabase } = require('../../../db/mongodb');
 const ObjectId = require('mongodb').ObjectId;
 import Jwt  from 'jsonwebtoken';
+var bcrypt = require('bcryptjs');
+
 const key=process.env.JWT_KEY
 
 export default async function handler(req, res) {
     // user login methods
     if(req.method==="POST"){
+        console.log(req.body)
 
         const {name,email,password,agree}=req.body
-        if(!email|| !password ||!name||agree==false){
+        if(!email|| !password ||!name){
             res.status(400).json({error:"there is no password"})
         }else{
             
     try {
-        // connect to the database
+  
+        bcrypt.genSalt(10, async function(err, salt) {
+            bcrypt.hash("password", salt, async function(err, hash) {
+                // Store hash in your password DB.
+                console.log("hash",hash)
+
+
+                        // connect to the database
         let { db } = await connectToDatabase();
         // fetch the posts
         const newUsers={
             name,
             email,
-            password,
+            password:hash,
             agree,
         }
         let posts = await db
@@ -49,6 +59,9 @@ export default async function handler(req, res) {
             });
         }
       )
+
+            });
+        });
 
        
     } catch (error) {

@@ -1,7 +1,7 @@
 [
     {
         "title": " Dashboard",
-        "icon": "nav-icon fas fa-tachometer-alt",
+        "icon": "nav-icon fa-solid fa-gauge-high",
         "childrens": [
             {
                 "title": "Dashboard v1",
@@ -18,16 +18,16 @@
     },
     {
         "title": " Pages",
-        "icon": "nav-icon fas fa-book",
+        "icon": "nav-icon fas  fa-file",
         "childrens": [
             {
                 "title": " All Pages",
-                "icon": "far fa-bookmark nav-icon",
+                "icon": " nav-icon fa fa-align-justify",
                 "path": "/admin/dashboard/pages"
             },
             {
                 "title": "Add page",
-                "icon": "far fa-calendar-plus nav-icon",
+                "icon": " nav-icon  far fas fa-file-circle-plus",
                 "path": "/admin/dashboard/pages/addpage"
             }
     
@@ -35,7 +35,7 @@
     },
     {
         "title": " Users",
-        "icon": "nav-icon fas fa-user",
+        "icon": "nav-icon fas fa-users",
         "childrens": [
             {
                 "title": " AllUsers",
@@ -53,7 +53,7 @@
 
     {
         "title": " Form",
-        "icon": "nav-icon fas fa-edit",
+        "icon": "nav-icon fas fa-users",
         "childrens": [
             {
                 "title": " AllUsers",
@@ -70,17 +70,17 @@
     },
     {
         "title": " Posts",
-        "icon": "nav-icon fas fa-edit",
+        "icon": "nav-icon fa fa-pen-to-square",
         "childrens": [
             {
-                "title": " AllUsers",
+                "title": " All posts",
                 "icon": "far fa-sitting nav-icon",
                 "path": "pages/charts/chartjs.html"
             },
             {
-                "title": "Addusers",
-                "icon": "far fa-circle nav-icon",
-                "path": "/pages/charts"
+                "title": "Add Posts",
+                "icon": " nav-icon fa fa-file-pen",
+                "path": "/admin/dashboard/posts/addposts"
             }
     
         ]
@@ -138,11 +138,11 @@
     },
     {
         "title": " Setting",
-        "icon": "nav-icon fas fa-heart",
+        "icon": "nav-icon fa-solid fa-gears",
         "childrens": [
             {
                 "title": " logout",
-                "icon": "far fa-hand-peace nav-icon",
+                "icon": "fa-solid fa-arrow-right-from-bracket",
                 "path": "/"
             },
             {

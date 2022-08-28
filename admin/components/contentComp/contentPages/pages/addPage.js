@@ -3,13 +3,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Dropdown } from 'primereact/dropdown';
 import { Button } from 'primereact/button';
+import { Toast } from 'primereact/toast';
 
 
 export default function AddpageContent(){
   const [headerAndFooter, setheaderAndFooter] = useState(null);
-  const [pageName, setpageName] = useState();
-  const [Descriptions, setDescriptions] = useState();
-  const [SectionNumber, setSectionNumber] = useState();
+  const [pageName, setpageName] = useState('');
+  const [Descriptions, setDescriptions] = useState('');
+  const [SectionNumber, setSectionNumber] = useState('');
+  const toast =useRef('')
 
 
 
@@ -24,6 +26,15 @@ export default function AddpageContent(){
     { name: 'advance',  },
     { name: 'tipical', },
   ];
+
+  const showSuccess = () => {
+    toast.current.show({severity:'success', summary: 'Add page', detail:'page add successfly', life: 3000});
+  }
+  
+  const showError = () => {
+    toast.current.show({severity:'error', summary: 'Add page', detail:'failed to add this page', life: 3000});
+  }
+  
 const AddPageSubmitHandler= async(e)=>{
   e.preventDefault();
   
@@ -50,14 +61,14 @@ const AddPageSubmitHandler= async(e)=>{
     body: JSON.stringify(data),
   }).catch(error => {
     console.error('Error:', error);
-
+    showError()
    setpageName('')
    setDescriptions('')
    setSectionNumber('')
   });
   let result = await loginApi.json();
   if(result.success===true){
-
+    showSuccess()
    setpageName('')
    setDescriptions('')
    setSectionNumber('')
@@ -69,8 +80,11 @@ const AddPageSubmitHandler= async(e)=>{
 
 }
 
+
     return (
     <>
+        <Toast ref={toast} />
+
         <section className="content-header">
           <div className="container-fluid">
             <div className="row mb-2">

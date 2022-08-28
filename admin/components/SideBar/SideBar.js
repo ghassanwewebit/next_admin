@@ -14,7 +14,6 @@ export default  function SideBar(){
 
 
   useEffect(()=>{
-    console.log("style",style);
     setToggelNabBar(style.style)
   
   },[style])

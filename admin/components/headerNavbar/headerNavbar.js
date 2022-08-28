@@ -23,10 +23,10 @@ export default function HeaderNavbar(props){
             <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars"></i></a>
           </li>
           <li className="nav-item d-none d-sm-inline-block">
-            <Link href="/admilln" className="nav-link">Home</Link>
+            <Link href="/admin" className="nav-link ">Home </Link>
           </li>
-          <li className="nav-item d-none d-sm-inline-block">
-            <Link href="#3asdwwaszz" className="nav-link">Contact</Link>
+          <li className="nav-item d-none d-sm-inline-block ms-5">
+            <Link href="#" className="nav-link ms-5"> / Contact</Link>
           </li>
         </ul>
     

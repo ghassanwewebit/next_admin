@@ -38,7 +38,6 @@ const showError = () => {
         email:email,
         password:password
       }
-console.log(data);
 
       const loginApi = await fetch(`http://localhost:3000/api/admin/login`, {
         method: 'POST',
@@ -51,9 +50,11 @@ console.log(data);
         console.error('Error:', error);
       });
       let result = await loginApi.json();
-      if(result.success===true){
+      console.log("result")
+      console.log("result",result)
+      if(result.status===true){
         showSuccess()
-        dispatch(authAutions.login(result.token))
+        // dispatch(authAutions.login(result.token))
         Router.push('/admin/dashboard')
       }else{
         showError()
@@ -62,9 +63,9 @@ console.log(data);
   }
     return (
       <>
-            <Toast ref={toast} />
 
         <div className="hold-transition login-page">
+        <Toast ref={toast} />
 
 <div className="login-box">
   <div className="login-logo">

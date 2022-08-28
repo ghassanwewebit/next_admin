@@ -1,7 +1,7 @@
 
 import PagesTables from "./page"
 
-export default function AllPages(){
+export default function AllPages(props){
 
 
 
@@ -34,7 +34,7 @@ export default function AllPages(){
                </div>
             </div>
             <div className="card-body p-0">
-               <PagesTables/>
+               <PagesTables pages={props.pages}/>
             </div>
          </div>
       </section>

@@ -2,7 +2,6 @@
 // import HeaderNavbar from '../components/headerNavbar/headerNavbar'
 // import FooterNavbar from '../components/footerNavbar/footerNavbar'
 import dynamic from 'next/dynamic';
-
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useSelector } from 'react-redux';
 

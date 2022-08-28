@@ -1,15 +1,15 @@
 const { connectToDatabase } = require('../../../db/mongodb');
 const ObjectId = require('mongodb').ObjectId;
 import Jwt  from 'jsonwebtoken';
+var Cookie = require('cookie');
+var bcrypt = require('bcryptjs');
 const key=process.env.JWT_KEY
 
 export default async function handler(req, res) {
     // user login methods
-    console.log("ASDasdasdasdasd");
     if(req.method==="POST"){
               
         const {email,password}=req.body
-        console.log(password);
         if(!email|| !password){
             res.status(400).json({error:"there is no password"})
 
@@ -31,29 +31,31 @@ export default async function handler(req, res) {
             if(!posts){
                 return res.status(400).json("there is no email")
             }
-            if(posts.password===password){
-                console.log("ASdasdmaosdbiaysdbnasjd");
-                Jwt.sign(
-                    payload,
-                    key,
-                    {
-                        expiresIn: 31556926, // 1 year in seconds
-                    },
-                    (err,token)=>{
-                        res.status(200).json({
-                            success:true,
-                            token:'Bearer' + ' ' +  token
-                        })
+                const checkPassword=bcrypt.compare(password, posts.password).then((res) => {
+                    return res              
+                  });
+                        if(checkPassword){
+
+                      const jwt = Jwt.sign(payload,key,{expiresIn: 31556926})
+                
+                    res.setHeader('Set-Cookie',Cookie.serialize("Authentications",jwt,{
+                        httpOlny:true,
+                        secure:process.env.NODE_ENV!=='development',
+                        sameSite:'strict',
+                        maxAge:3000,
+                        path:"/",
+
+                    }))
+                    res.json({message:"Welcome back again",status:true})
+                    }else{
+                        res.status(400).json({error:" wrong password please check you password again"})
                     }
-            )
-            }else{
-                res.status(400).json({error:" wrong password please check you password again"})
-            }
+                
         // return the posts
     } catch (error) {
         // return the error
         return res.status(500).json({
-            message:" email  not found please check again",
+            message:error,
             success: false,
             status:500
         });
