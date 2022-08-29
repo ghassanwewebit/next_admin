@@ -6,9 +6,7 @@ const AddpageContent =dynamic(()=>import('../../../../admin/components/contentCo
 export default function AddPage(){
 
     return(
-        <AdminPage>
             <AddpageContent/>
-        </AdminPage>
 
         
     )
