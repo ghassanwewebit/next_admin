@@ -15,7 +15,6 @@ export default async function handler(req, res) {
 
         }else{
 
-            res.status(200).json(req.body)
             
     try {
         // connect to the database
