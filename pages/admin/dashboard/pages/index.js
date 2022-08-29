@@ -14,7 +14,7 @@ export default function allPages(props){
 
 
 export async function getServerSideProps(context) {
-     const getPages= await fetch(`http://localhost:3000/api/admin/addpage`).then(res=>res.json())
+     const getPages= await fetch(`https://next-admin-nu.vercel.app/api/admin/addpage`).then(res=>res.json())
      .catch(error => {
          console.error('Error:', error);
        });

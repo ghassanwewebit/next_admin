@@ -55,6 +55,7 @@ export default async function handler(req, res) {
     } catch (error) {
         // return the error
         return res.status(501).json({
+            messaged:"asdasdasdasdasd",
             message:error,
             success: false,
             status:501
