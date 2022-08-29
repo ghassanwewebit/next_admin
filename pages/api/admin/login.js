@@ -29,8 +29,6 @@ export default async function handler(req, res) {
                 id:posts.id,
                 email:posts.email
             }
-            res.status(200).json(posts)
-
             if(!posts){
                 return res.status(400).json("there is no email")
             }
