@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Dropdown } from 'primereact/dropdown';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
+import { useRouter } from 'next/router';
 
 
 export default function AddpageContent(){
@@ -12,6 +13,7 @@ export default function AddpageContent(){
   const [Descriptions, setDescriptions] = useState('');
   const [SectionNumber, setSectionNumber] = useState('');
   const toast =useRef('')
+  const Router=useRouter()
 
 
 
@@ -51,6 +53,7 @@ const AddPageSubmitHandler= async(e)=>{
 
 
  if(pageName || Descriptions || SectionNumber){
+  console.log(Router)
 
   const loginApi = await fetch(`/api/admin/addpage`, {
     method: 'POST',
