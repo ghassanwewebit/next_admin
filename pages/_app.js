@@ -15,14 +15,11 @@ import "primeicons/primeicons.css";
 
 import { Provider } from 'react-redux'
 import store  from './../admin/store/index'
-import AdminPage from '../admin/layout/adminPage';
 
 function MyApp({ Component, pageProps }) {
   return(
     <Provider store={store}>
-      <AdminPage>
     <Component {...pageProps} />
-    </AdminPage>
     </Provider>)
 }
 
