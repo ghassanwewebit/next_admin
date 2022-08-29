@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 import Jwt  from 'jsonwebtoken';
 var Cookie = require('cookie');
 var bcrypt = require('bcryptjs');
-const key=process.env.JWT_KEY
+const key="ghassanghanimah"
 
 export default async function handler(req, res) {
     // user login methods

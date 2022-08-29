@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 
-const MONGODB_URI = process.env.MONGODB_URI;
-const MONGODB_DB = process.env.DB_NAME;
+const MONGODB_URI = "mongodb+srv://admin:admin@cluster0.1wjxyok.mongodb.net/?retryWrites=true&w=majority";
+const MONGODB_DB ="nextjs";
 
 // check the MongoDB URI
 if (!MONGODB_URI) {
