@@ -16,11 +16,11 @@ export default function Admin(){
     const token=useSelector(state=>state.auth)
     const Router=useRouter()
 
-    useEffect(()=>{
-        if(!cookies.Authentications){
-          Router.push('/admin')
-        }
-    },[cookies.Authentications])
+    // useEffect(()=>{
+    //     if(!cookies.Authentications){
+    //       Router.push('/admin')
+    //     }
+    // },[cookies.Authentications])
     return (
 
       <AdminPage>
