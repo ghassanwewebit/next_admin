@@ -42,7 +42,7 @@ const showError = () => {
       
 
       
-      const loginApi = await fetch(`/api/admin/login`, {
+      const loginApi = await fetch(`https://next-admin-nu.vercel.app/api/admin/login`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
