@@ -54,7 +54,7 @@ export default async function handler(req, res) {
         // return the posts
     } catch (error) {
         // return the error
-        return res.status(500).json({
+        return res.status(501).json({
             message:error,
             success: false,
             status:500
