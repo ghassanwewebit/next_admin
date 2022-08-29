@@ -23,7 +23,9 @@ export default function Admin(){
     // },[cookies.Authentications])
     return (
 
+      <AdminPage>
         <HomePageContent/>
+      </AdminPage>
 
 
        

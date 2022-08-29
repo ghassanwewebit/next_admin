@@ -19,10 +19,8 @@ import AdminPage from '../admin/layout/adminPage';
 
 function MyApp({ Component, pageProps }) {
   return(
-    <Provider store={store}>
-      <AdminPage>
+    <Provider store={store}>s
     <Component {...pageProps} />
-    </AdminPage>
     </Provider>)
 }
 

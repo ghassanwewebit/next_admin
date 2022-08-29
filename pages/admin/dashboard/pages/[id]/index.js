@@ -50,7 +50,9 @@ export default  function PageID(props){
 
 
     return (
+        <AdminPage>
         <PageDetails data={props.posts}/>
+        </AdminPage>
     )
 }
 

@@ -7,6 +7,8 @@ export default function ContactUsPage(){
 
 
     return(
+        <AdminPage>
             <ProfilePageContent/>
+        </AdminPage>
     )
 }
