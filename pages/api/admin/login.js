@@ -14,42 +14,44 @@ export default async function handler(req, res) {
             res.status(400).json({error:"there is no password"})
 
         }else{
+
+            res.status(200).json(req.body)
             
     try {
         // connect to the database
-        let { db } = await connectToDatabase();
-        // fetch the posts
-        let posts = await db
-            .collection('adminUsers')
-            .findOne({
-                email:email,
-            })
-            const payload = {
-                id:posts.id,
-                email:posts.email
-            }
-            if(!posts){
-                return res.status(400).json("there is no email")
-            }
-                const checkPassword=bcrypt.compare(password, posts.password).then((res) => {
-                    return res              
-                  });
-                        if(checkPassword){
+        // let { db } = await connectToDatabase();
+        // // fetch the posts
+        // let posts = await db
+        //     .collection('adminUsers')
+        //     .findOne({
+        //         email:email,
+        //     })
+        //     const payload = {
+        //         id:posts.id,
+        //         email:posts.email
+        //     }
+        //     if(!posts){
+        //         return res.status(400).json("there is no email")
+        //     }
+        //         const checkPassword=bcrypt.compare(password, posts.password).then((res) => {
+        //             return res              
+        //           });
+        //                 if(checkPassword){
 
-                      const jwt = Jwt.sign(payload,key,{expiresIn: 31556926})
+        //               const jwt = Jwt.sign(payload,key,{expiresIn: 31556926})
                 
-                    res.setHeader('Set-Cookie',Cookie.serialize("Authentications",jwt,{
-                        httpOlny:true,
-                        secure:process.env.NODE_ENV!=='development',
-                        sameSite:'strict',
-                        maxAge:3000,
-                        path:"/",
+        //             res.setHeader('Set-Cookie',Cookie.serialize("Authentications",jwt,{
+        //                 httpOlny:true,
+        //                 secure:process.env.NODE_ENV!=='development',
+        //                 sameSite:'strict',
+        //                 maxAge:3000,
+        //                 path:"/",
 
-                    }))
-                    res.json({message:"Welcome back again",status:true})
-                    }else{
-                        res.status(400).json({error:" wrong password please check you password again"})
-                    }
+        //             }))
+        //             res.json({message:"Welcome back again",status:true})
+        //             }else{
+        //                 res.status(400).json({error:" wrong password please check you password again"})
+        //             }
                 
         // return the posts
     } catch (error) {
