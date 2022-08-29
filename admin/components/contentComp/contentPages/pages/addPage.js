@@ -55,7 +55,7 @@ const AddPageSubmitHandler= async(e)=>{
  if(pageName || Descriptions || SectionNumber){
   console.log(Router)
 
-  const loginApi = await fetch(`/api/admin/addpage`, {
+  const loginApi = await fetch(`/admin/addpage`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
