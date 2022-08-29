@@ -16,7 +16,7 @@ export default function allPages(props){
 export async function getServerSideProps(context) {
   console.log("context",process.env.Host)
   console.log("process.env.NEXT_API",process.env.NEXT_API)
-     const getPages= await fetch(`${process.env.NEXT_API}api/admin/addpage`).then(res=>res.json())
+     const getPages= await fetch(`/api/admin/addpage`).then(res=>res.json())
      .catch(error => {
          console.error('Error:', error);
        });

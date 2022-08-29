@@ -76,7 +76,7 @@ export default function AddPosts(props){
           date :new Date().toISOString()
         }
        if(postName  && sectionsName && postStatus && pageName){
-        const loginApi = await fetch(`${process.env.NEXT_API}api/admin/posts/addposts`, {
+        const loginApi = await fetch(`/api/admin/posts/addposts`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',
