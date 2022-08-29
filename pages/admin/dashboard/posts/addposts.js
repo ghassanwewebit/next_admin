@@ -14,14 +14,14 @@ export default function AddpostsPage(props){
 
 
 export async function getServerSideProps(context) {
-    const getPages= await fetch(`${ process.env.NEXT_API}api/admin/addpage`).then(res=>res.json()
+    const getPages= await fetch(`${ process.env.NEXT_API}/api/admin/addpage`).then(res=>res.json()
     )
     .catch(error => {
         console.error('Error:', error);
       });
     return {
       props: {
-       pages: JSON.parse(JSON.stringify(getPages.body)),
+       pages: JSON.parse(JSON.stringify(getPages?.body)),
       }, // will be passed to the page component as props
     }
   }
