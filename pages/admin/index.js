@@ -39,7 +39,7 @@ const showError = () => {
         password:password
       }
 
-      const loginApi = await fetch(`${process.env.NEXT_API}api/admin/login`, {
+      const loginApi = await fetch(`https://admin-teal-zeta.vercel.app/api/admin/login`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
