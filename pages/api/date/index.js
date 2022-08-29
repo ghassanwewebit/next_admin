@@ -7,7 +7,7 @@ export default  async function handler(req,res){
         let { db } = await connectToDatabase();
         // fetch the posts
         let posts = await db
-            .collection('pages')
+            .collection('users')
             .find({})
             .sort({ published: -1 })
             .toArray();
