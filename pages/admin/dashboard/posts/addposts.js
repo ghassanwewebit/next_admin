@@ -6,9 +6,7 @@ export default function AddpostsPage(props){
 
     return(
 
-        <AdminPage>
             <AddPosts pages={props.pages}/>
-        </AdminPage>
     )
 }
 

@@ -11,10 +11,8 @@ export default function Users(){
     return(
            
 
-        <AdminPage>
 <UsersPage/>
 
-        </AdminPage>
 
     )
 }

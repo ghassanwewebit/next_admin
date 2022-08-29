@@ -6,9 +6,7 @@ const AllPages =dynamic(()=>import('../../../../admin/components/contentComp/con
 
 export default function allPages(props){
     return (
-        <AdminPage>
         <AllPages pages={props.pages}/>
-    </AdminPage>
     )
 }
 

@@ -7,8 +7,6 @@ export default function ContactUsPage(){
 
 
     return(
-        <AdminPage>
             <ContactUs/>
-        </AdminPage>
     )
 }
