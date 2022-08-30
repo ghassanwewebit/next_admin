@@ -16,7 +16,7 @@ export default  function PagesTables(props){
    async function deletePageHandler(id){
       const deletepage = await axiosInstance.delete(`/api/admin/addpage?id=${id}`)
        .then(res=>{
-         if(res.statusText=="OK"){
+         if(res.status===200){
             showSuccess()
          }
        })

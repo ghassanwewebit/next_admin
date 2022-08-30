@@ -78,7 +78,7 @@ export default function PageDetails(props) {
     const deletePostHandler= async(pageID,postID)=>{
         await axiosInstance.delete(`/api/admin/posts/deletePosts?page_ID=${pageID}&post_id=${postID}`)
         .then(res=>{
-            if(res.statusText==="OK"){
+            if(res.status===200){
                 showSuccess()
             }}).catch(err=>{console.log("Error",err);showError()})
     }
