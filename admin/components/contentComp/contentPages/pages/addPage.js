@@ -5,6 +5,7 @@ import { Dropdown } from 'primereact/dropdown';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
 import { useRouter } from 'next/router';
+import axiosInstance from '../../../../utilies/axiosInterceptor';
 
 
 export default function AddpageContent(){
@@ -40,9 +41,7 @@ export default function AddpageContent(){
 const AddPageSubmitHandler= async(e)=>{
   e.preventDefault();
   
-  // console.log("ASdasdasd");
   
-// console.log(pageName,Descriptions,SectionNumber,headerAndFooter.name);
   let data={
     page_name:pageName,
     descriptions:Descriptions,
@@ -53,15 +52,13 @@ const AddPageSubmitHandler= async(e)=>{
 
 
  if(pageName || Descriptions || SectionNumber){
-  console.log(Router)
 
-  const loginApi = await fetch(`/api/admin/addpage`, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
+  const loginApi = await axiosInstance.post(`/api/admin/addpage`, {
+    page_name:pageName,
+    descriptions:Descriptions,
+    Section_number:SectionNumber,
+    header_and_footer:headerAndFooter?.name,
+    date :new Date().toISOString()
   }).catch(error => {
     console.error('Error:', error);
     showError()
@@ -69,13 +66,12 @@ const AddPageSubmitHandler= async(e)=>{
    setDescriptions('')
    setSectionNumber('')
   });
-  let result = await loginApi.json();
-  if(result.success===true){
+  let result =loginApi;
+  if(result.data.success===true){
     showSuccess()
    setpageName('')
    setDescriptions('')
    setSectionNumber('')
-    console.log(result);
   }else{
   }
 }

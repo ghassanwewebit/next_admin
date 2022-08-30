@@ -2,7 +2,7 @@ const { connectToDatabase } = require('../../../../db/mongodb');
 const ObjectId = require('mongodb').ObjectId;
 
 export default async function handler(req,res){
-            
+    console.log("req.cookies",req.headers)
         if(req.method=="POST"){
             try {
                 // connect to the database

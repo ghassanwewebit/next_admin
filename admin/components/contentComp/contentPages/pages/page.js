@@ -2,6 +2,7 @@ import { useEffect ,useRef} from "react";
 import Link from "next/link";
 import { Dialog } from 'primereact/dialog';
 import { Toast } from 'primereact/toast';
+import axiosInstance from "../../../../utilies/axiosInterceptor";
 
 export default  function PagesTables(props){
    const toast = useRef(null);
@@ -13,24 +14,16 @@ export default  function PagesTables(props){
   }
 
    async function deletePageHandler(id){
-      const deletepage = await fetch(`/api/admin/addpage`,{
-         method:"DELETE",
-         headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body:JSON.stringify(id)
-      }).then(res=>{
+      const deletepage = await axiosInstance.delete(`/api/admin/addpage?id=${id}`)
+       .then(res=>{
          if(res.statusText=="OK"){
             showSuccess()
          }
-      })
-      
-      .catch(error => {
+       })
+       .catch(error => {
           console.error('Error:', error);
           showError()
         });
-        console.log("deletepage",deletepage);
    }
 
    const renderAllPagesHandler=()=>{

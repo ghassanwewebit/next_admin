@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
+import axiosInstance from "../../../../admin/utilies/axiosInterceptor";
+import { getCookies, getCookie, setCookie, deleteCookie } from 'cookies-next';
 
 
 import dynamic from "next/dynamic"
@@ -28,14 +30,13 @@ export default function AllPage(props){
 
 
 export async function getStaticProps(context) {
-     const getPages= await fetch(`${process.env.NEXT_API}/api/admin/addpage`).then(res=>res?.json())
+     const getPages= await axiosInstance.get(`/api/admin/addpage`).catch(err=>console.log(err))
      .catch(error => {
          console.error('Error:', error);
        });
-       console.log("getPages",getPages?.body)
      return {
        props: {
-        pages: getPages?.body 
+        pages: getPages?.data.body ||null
        }, // will be passed to the page component as props
      }
    }

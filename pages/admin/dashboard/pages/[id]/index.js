@@ -6,7 +6,6 @@ import { useCookies } from "react-cookie";
 import PageDetails from "../../../../../admin/components/contentComp/contentPages/pages/pageDetails";
 
 export default  function PageID(props){
-    console.log(props)
 
     // console.log(Router.query.id);
 
@@ -42,7 +41,6 @@ export async function getStaticProps(context){
     })
     .then(res=>res.json())
     .catch(error=>console.log("Error",error))
-    console.log(getAllPostForThisPage)
     return {
         props:{
             posts:getAllPostForThisPage?.AllPostsForThisPage || null
@@ -51,7 +49,7 @@ export async function getStaticProps(context){
 }
 
 export async function getStaticPaths(context) {
-    console.log("context.query",context)
+    console.log("context.query",context.req?.headers)
     return {
       paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
       fallback: true, // can also be true or 'blocking'

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { useState } from "react"
 
 export default function SideBarItems(props){
@@ -11,10 +12,12 @@ const sidebarChildren=()=>{
     return props.sidebar.childrens.map(child=>{
         return (
             <li className="nav-item" key={child.title}>
-            <a href={child.path} className="nav-link">
+            <Link href={child.path} >
+              <a className="nav-link">
               <i className={child.icon}></i>
               <p>{child.title}</p>
-            </a>
+              </a>
+            </Link>
           </li>
         )
     })

@@ -52,8 +52,8 @@ export default function   ProfilePageContent(){
                     <b>phone</b> <a className="float-right">13,287</a>
                   </li>
                 </ul>
-
-                <a href="#" className="btn btn-primary btn-block"><b>Follow</b></a>
+                <a>
+                <Link href="/admin/dashboard/contactUs" className="btn btn-primary btn-block"><b>Follow</b></Link></a>
               </div>
             </div>
 

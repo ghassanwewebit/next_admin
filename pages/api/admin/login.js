@@ -7,6 +7,7 @@ const key="ghassanghanimah"
 
 export default async function handler(req, res) {
     // user login methods
+
     if(req.method==="POST"){
               
         const {email,password}=req.body
@@ -47,7 +48,7 @@ export default async function handler(req, res) {
                         path:"/",
 
                     }))
-                    res.json({message:"Welcome back again",status:true})
+                        res.json({message:"Welcome back again",status:true})
                     }else{
                         res.status(400).json({error:" wrong password please check you password again"})
                     }

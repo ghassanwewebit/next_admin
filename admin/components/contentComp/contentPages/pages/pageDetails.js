@@ -1,23 +1,32 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef} from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { SplitButton } from 'primereact/splitbutton';
 import { useRouter } from 'next/router'
 import { ProgressSpinner } from 'primereact/progressspinner';
+import axiosInstance from '../../../../utilies/axiosInterceptor';
+import { Toast } from 'primereact/toast';
 
 
 import Link from 'next/link';
 
 export default function PageDetails(props) {
+    const toast = useRef(null);
+
     const [customers1, setCustomers1] = useState([]);
 
     const [loading,setLoading]=useState(false)
     const Router=useRouter()
 
 
- 
+    const showSuccess = () => {
+        toast.current.show({severity:'success', summary: 'deleteing post', detail:'post delete successfly', life: 3000});
+    }
+    const showError = () => {
+        toast.current.show({severity:'error', summary: 'Error Message', detail:'Message Content', life: 3000});
+    }
 
 
     useEffect(() => {
@@ -57,7 +66,6 @@ export default function PageDetails(props) {
                 label: 'Delete',
                 icon: 'pi pi-times',
                 command:async (e) => {
-                    console.log(data)
                     const pageID= Router.query.id
                     deletePostHandler(pageID,data._id)
                 }
@@ -68,23 +76,17 @@ export default function PageDetails(props) {
 
     }
     const deletePostHandler= async(pageID,postID)=>{
-        await fetch(`/api/admin/posts/deletePosts`,
-                    {
-                        method:"DELETE",
-                        headers: {
-                            Accept: 'application/json',
-                            'Content-Type': 'application/json',
-                          },
-                          body:JSON.stringify({
-                            page_id:pageID,
-                            post_id:postID
-                          })
-                    })
+        await axiosInstance.delete(`/api/admin/posts/deletePosts?page_ID=${pageID}&post_id=${postID}`)
+        .then(res=>{
+            if(res.statusText==="OK"){
+                showSuccess()
+            }}).catch(err=>{console.log("Error",err);showError()})
     }
 
 
     return (
         <section className="content-header">
+                  <Toast ref={toast} />
         <div className="container-fluid">
            <div className="row mb-2">
            <div className="col-sm-6 mb-5">

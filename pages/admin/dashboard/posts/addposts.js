@@ -5,6 +5,7 @@ import AddPosts from "../../../../admin/components/contentComp/contentPages/post
 import AdminPage from "../../../../admin/layout/adminPage";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
+import axiosInstance from "../../../../admin/utilies/axiosInterceptor";
 
 
 export default function AddpostsPage(props){
@@ -28,14 +29,11 @@ export default function AddpostsPage(props){
 
 
 export async function getStaticProps(context) {
-    const getPages= await fetch(`${ process.env.NEXT_API}/api/admin/addpage`).then(res=>res.json()
-    )
-    .catch(error => {
-        console.error('Error:', error);
-      });
+    const getPages= await axiosInstance.get(`/api/admin/addpage`).catch(err=>console.log(err))
+    console.log("getPages",getPages.data.body)
     return {
       props: {
-       pages: JSON.parse(JSON.stringify(getPages?.body)),
+       pages: getPages.data.body||null
       }, // will be passed to the page component as props
     }
   }

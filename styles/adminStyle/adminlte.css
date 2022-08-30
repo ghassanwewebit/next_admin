@@ -53011,7 +53011,7 @@ a.text-muted:hover {
 .dark-mode .border-dark {
   border-color: #4b545c !important;
 }
-.fa-th-large::before{
+.fa-th-large::before,.fa-expand-arrows-alt::before{
   font-size: 24px;
 }
 /*# sourceMappingURL=adminlte.css.map */

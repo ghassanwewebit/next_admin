@@ -2,20 +2,21 @@ const { connectToDatabase } = require('../../../../db/mongodb');
 const ObjectId = require('mongodb').ObjectId;
 
 export default async function handler(req,res){
-            
+    console.log("req.cookies",req.headers)
+
         if(req.method=="DELETE"){
-            console.log(req.body)
     
             try {
                 // connect to the database
               
                 let { db } = await connectToDatabase();
                 // add the post
+                console.log(req.query)
                 await db.collection('pages').update(
                                 {
-                                _id: new ObjectId(req.body.page_id),
+                                _id: new ObjectId(req.query.page_id),
                                 },
-                                { $pull: { posts: { _id: new ObjectId(req.body.post_id) } } },
+                                { $pull: { posts: { _id: new ObjectId(req.query.post_id) } } },
 
                             );
                 // return a message

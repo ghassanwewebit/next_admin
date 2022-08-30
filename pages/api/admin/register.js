@@ -8,7 +8,6 @@ const key="ghassanghanimah"
 export default async function handler(req, res) {
     // user login methods
     if(req.method==="POST"){
-        console.log(req.body)
 
         const {name,email,password,agree}=req.body
         if(!email|| !password ||!name){
@@ -20,7 +19,6 @@ export default async function handler(req, res) {
         bcrypt.genSalt(10, async function(err, salt) {
             bcrypt.hash("password", salt, async function(err, hash) {
                 // Store hash in your password DB.
-                console.log("hash",hash)
 
 
                         // connect to the database

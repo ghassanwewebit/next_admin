@@ -20,7 +20,6 @@ export default function AddPosts(props){
     const [pagesName,setPagesName]=useState([])
     const toast=useRef()
     const currentUser=useSelector(state=>{state})
-    console.log("currentUser",currentUser)
 
     useEffect(()=>{
         const pageProps=[]
@@ -38,7 +37,6 @@ export default function AddPosts(props){
     ]
     const onPageNameChange = (e) => {
         e.preventDefault()
-        console.log("asdasdasdassdasaddsasadsads",e.value)
         setPageName(e.value);
       }
       const onPostStatusChange=(e)=>{
@@ -90,7 +88,6 @@ export default function AddPosts(props){
         let result = await loginApi.json();
         if(result.success===true){
             showSuccess()
-          console.log(result);
         }else{
         }
       }

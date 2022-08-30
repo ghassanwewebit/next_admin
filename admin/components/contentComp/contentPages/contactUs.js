@@ -28,8 +28,10 @@ export default function ContactUs(){
                     <p className="lead mb-5">123 Testing Ave, Testtown, 9876 NA<br/>
                         Phone: +1 234 56789012
                     </p>
+                    <Link href='/admin/dashboard/Profile'>Profile </Link>
                     </div>
                 </div>
+                
                 <div className="col-7">
                     <div className="form-group">
                     <label htmlFor="inputName">Name</label>

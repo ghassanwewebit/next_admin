@@ -3,6 +3,7 @@ import useRouter from 'next/router'
 import Link from 'next/link'
 import { useDispatch } from "react-redux";
 import {authAutions} from '../../admin/store/authStore'
+import axiosInstance from './../../admin/utilies/axiosInterceptor'
 
 import { Toast } from 'primereact/toast';
 
@@ -42,20 +43,17 @@ const showError = () => {
       
 
       
-      const loginApi = await fetch(`/api/admin/login`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      }).catch(error => {
+      const loginApi = await axiosInstance.post(`/api/admin/login`, {
+        email:email,
+        password:password
+      }
+).catch(error => {
         console.error('Error:', error);
       });
-      let result = await loginApi.json();
-      console.log("result")
-      console.log("result",result)
-      if(result.status===true){
+      let result =  loginApi;
+      console.log("resultesss",result)
+      if(result.statusText==="OK"){
+        // console.log( "document.cookie",document.cookie)
         showSuccess()
         // dispatch(authAutions.login(result.token))
         Router.push('/admin/dashboard')

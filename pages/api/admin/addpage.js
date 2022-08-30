@@ -1,10 +1,10 @@
 const { connectToDatabase } = require('../../../db/mongodb');
 const ObjectId = require('mongodb').ObjectId;
-// import middleWareAuth from './../middleWareAuth.js/Auth'
+import middleWareAuth from './middleWareAuth.js/Auth'
  
 
-export default async function handler(req,res){
-    // console.log("req.cookies",req.headers)
+export default  (async function handler(req,res){
+    console.log("req.cookies",req.headers)
 
         if(req.method=="POST"){
     
@@ -49,13 +49,15 @@ export default async function handler(req,res){
                 });
             }
         }else if(req.method==="DELETE"){
+            
+            console.log("ASdasdassadsdasddas",req.query.id)
         try {
             // Connecting to the database
             let { db } = await connectToDatabase();
     
             // Deleting the post
             await db.collection('pages').deleteOne({
-                _id: new ObjectId(req.body),
+                _id: new ObjectId(req.query.id),
             });
     
             // returning a message
@@ -74,4 +76,4 @@ export default async function handler(req,res){
     }else{
             return res.status(400).json({message:"there is an error happen in this end point"})
         }
-}
+})
