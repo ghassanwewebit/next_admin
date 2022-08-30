@@ -52,7 +52,7 @@ const showError = () => {
       });
       let result =  loginApi;
       console.log("resultesss",result)
-      if(result.statusText==="OK"){
+      if(result.status===200){
         // console.log( "document.cookie",document.cookie)
         showSuccess()
         // dispatch(authAutions.login(result.token))
