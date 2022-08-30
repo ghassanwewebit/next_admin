@@ -5,23 +5,32 @@ import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { SplitButton } from 'primereact/splitbutton';
 import { useRouter } from 'next/router'
+import { ProgressSpinner } from 'primereact/progressspinner';
+
 
 import Link from 'next/link';
 
 export default function PageDetails(props) {
     const [customers1, setCustomers1] = useState([]);
+
+    const [loading,setLoading]=useState(false)
     const Router=useRouter()
 
 
-
  
-  
 
 
     useEffect(() => {
-        setCustomers1(props.data)
+        if(props.data===undefined){
+            setLoading(true)
+            
+        }else{
 
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+            setCustomers1(props.data)
+            setLoading(false)
+        }
+
+    }, [props.data]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const paginatorLeft = <Button type="button" icon="pi pi-refresh" className="p-button-text" />;
     const paginatorRight = <Button type="button" icon="pi pi-cloud" className="p-button-text" />;
@@ -89,9 +98,10 @@ export default function PageDetails(props) {
             <div className="card p-4">
                 <div className=' d-flex justify-content-between mb-5'>
                 <h5 className='mb-4'>All posts</h5>
-                <Button label="Add posts" className="p-button-Secondary  p-button-rounded mr-5" />
+                <Link href='/admin/dashboard/posts/addposts'><Button label="Add posts" className="p-button-Secondary  p-button-rounded mr-5" /></Link>
                 </div>
-                <DataTable value={customers1} paginator responsiveLayout="scroll"
+               {loading&&<ProgressSpinner/>}
+               {!loading && <DataTable value={customers1} paginator responsiveLayout="scroll"
                     paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" rows={10} rowsPerPageOptions={[10,20,50]}
                     paginatorLeft={paginatorLeft} paginatorRight={paginatorRight}>
@@ -102,8 +112,7 @@ export default function PageDetails(props) {
                         />
                     <Column field="post_Status" header="status" style={{ width: '20%' }}></Column>
                     <Column  feild="_id" headerStyle={{ width: '4rem', textAlign: 'center' }} bodyStyle={{ textAlign: 'center', overflow: 'visible' }} body={(e)=>actionBodyTemplate(e)} />
-
-                </DataTable>
+                </DataTable>}
             </div>
 
         </div>

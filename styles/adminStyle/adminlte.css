@@ -12293,7 +12293,9 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 .main-header .navbar-nav .nav-item {
   margin: 0;
+  transition: all 5s;
 }
+
 
 .main-header .navbar-nav[class*="-right"] .dropdown-menu {
   left: auto;
@@ -12686,8 +12688,8 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 .nav-sidebar .menu-open > .nav-link i.right,
 .nav-sidebar .menu-is-opening > .nav-link svg.right,
 .nav-sidebar .menu-is-opening > .nav-link i.right {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .nav-sidebar > .nav-item {
@@ -33149,8 +33151,8 @@ html.maximized-card {
 }
 
 [data-widget="expandable-table"][aria-expanded="true"] i.expandable-table-caret[class*="left"] {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 [aria-expanded="true"] {
@@ -33169,8 +33171,8 @@ html.maximized-card {
 }
 
 [aria-expanded="true"] [data-widget="expandable-table"] i.expandable-table-caret[class*="left"] {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .expandable-body > td {
@@ -53008,5 +53010,8 @@ a.text-muted:hover {
 
 .dark-mode .border-dark {
   border-color: #4b545c !important;
+}
+.fa-th-large::before{
+  font-size: 24px;
 }
 /*# sourceMappingURL=adminlte.css.map */

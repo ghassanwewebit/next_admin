@@ -1,7 +1,7 @@
 [
     {
         "title": " Dashboard",
-        "icon": "nav-icon fa-solid fa-gauge-high",
+        "icon": " fa-solid fa-gauge-high",
         "childrens": [
             {
                 "title": "Dashboard v1",
@@ -18,7 +18,7 @@
     },
     {
         "title": " Pages",
-        "icon": "nav-icon fas  fa-file",
+        "icon": " fas  fa-file",
         "childrens": [
             {
                 "title": " All Pages",
@@ -34,8 +34,25 @@
         ]
     },
     {
+        "title": " Posts",
+        "icon": " fa fa-pen-to-square",
+        "childrens": [
+            {
+                "title": " All posts",
+                "icon": "fa-solid fa-bars-staggered",
+                "path": "/admin/dashboard/posts/allPosts"
+            },
+            {
+                "title": "Add Posts",
+                "icon": " nav-icon fa fa-file-pen",
+                "path": "/admin/dashboard/posts/addposts"
+            }
+    
+        ]
+    },
+    {
         "title": " Users",
-        "icon": "nav-icon fas fa-users",
+        "icon": " fas fa-users",
         "childrens": [
             {
                 "title": " AllUsers",
@@ -53,7 +70,7 @@
 
     {
         "title": " Form",
-        "icon": "nav-icon fas fa-users",
+        "icon": " fas fa-users",
         "childrens": [
             {
                 "title": " AllUsers",
@@ -68,26 +85,10 @@
     
         ]
     },
-    {
-        "title": " Posts",
-        "icon": "nav-icon fa fa-pen-to-square",
-        "childrens": [
-            {
-                "title": " All posts",
-                "icon": "far fa-sitting nav-icon",
-                "path": "pages/charts/chartjs.html"
-            },
-            {
-                "title": "Add Posts",
-                "icon": " nav-icon fa fa-file-pen",
-                "path": "/admin/dashboard/posts/addposts"
-            }
-    
-        ]
-    },
+
     {
         "title": " Plugin",
-        "icon": "nav-icon fas fa-edit",
+        "icon": " fas fa-edit",
         "childrens": [
             {
                 "title": " AllUsers",
@@ -104,7 +105,7 @@
     },
     {
         "title": " Editor",
-        "icon": "nav-icon fas fa-edit",
+        "icon": " fas fa-edit",
         "childrens": [
             {
                 "title": " AllUsers",
@@ -121,7 +122,7 @@
     },
     {
         "title": " Tools",
-        "icon": "nav-icon fas fa-edit",
+        "icon": " fas fa-edit",
         "childrens": [
             {
                 "title": " AllUsers",
@@ -138,11 +139,11 @@
     },
     {
         "title": " Setting",
-        "icon": "nav-icon fa-solid fa-gears",
+        "icon": " fa-solid fa-gears",
         "childrens": [
             {
                 "title": " logout",
-                "icon": "fa-solid fa-arrow-right-from-bracket",
+                "icon": "nav-icon fa-solid fa-arrow-right-from-bracket",
                 "path": "/"
             },
             {
@@ -152,12 +153,12 @@
             },
             {
                 "title": "Contact us",
-                "icon": "far fa-registered nav-icon",
+                "icon": "fa-solid fa-address-book nav-icon",
                 "path": "/admin/dashboard/contactUs"
             },
             {
                 "title": "Profile",
-                "icon": "far fa-registered nav-icon",
+                "icon": "fa-solid fa-id-card-clip nav-icon",
                 "path": "/admin/dashboard/Profile"
             }
     

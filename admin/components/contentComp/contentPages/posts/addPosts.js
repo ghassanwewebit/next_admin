@@ -103,7 +103,7 @@ export default function AddPosts(props){
       const cancelOptions = {label: 'Cancel', icon: 'pi pi-times', className: ''};
     return (
             <section className="content-header">
-        <Toast ref={toast} />
+            <Toast ref={toast} />
 
             <div className="container-fluid">
                 <div className="row mb-2">
