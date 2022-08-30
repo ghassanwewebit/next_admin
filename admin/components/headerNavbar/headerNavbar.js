@@ -9,6 +9,7 @@ import { Badge } from 'primereact/badge';
 
 export default function HeaderNavbar(props){
   const [visibleRight, setVisibleRight] = useState(false);
+  const [togglefullscreen,setToggleFullScreen]=useState(false)
 
   const dispatch=useDispatch()
   const style=useSelector(state=>state.style)

@@ -276,7 +276,7 @@ export default function AllPagesPosts(props){
 						</ol>
 					</div>
 				</div>
-                <div className="datatable-crud-demo mx-5">
+                <div className="datatable-crud-demo">
             <Toast ref={toast} />
 
             <div className="card">

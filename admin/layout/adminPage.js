@@ -15,11 +15,13 @@ export default function AdminPage(props){
     const style=useSelector(state=>state.style)
 
     const handle = useFullScreenHandle();
+
+
     return(
         <>
            <div className="wrapper">
                 <FullScreen handle={handle}>
-                    <HeaderNavbar FullScreenHandle={handle.enter}/>
+                    <HeaderNavbar FullScreenHandle={handle.active?handle.exit:handle.enter}/>
                     <SideBar/>
                     <div className="content-wrapper" style={{marginLeft:style.style?'250px':'0'}}>
                     {props.children}
