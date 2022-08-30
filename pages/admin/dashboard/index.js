@@ -10,17 +10,14 @@ const HomePageContent =dynamic(()=>import('../../../admin/components/contentComp
 
 
 export default function Admin(){
-  const [cookies, setCookie] = useCookies();
-  console.log("cookies",cookies.Authentications)
-
-    const token=useSelector(state=>state.auth)
     const Router=useRouter()
+    const [cookies, setCookie] = useCookies();
 
-    // useEffect(()=>{
-    //     if(!cookies.Authentications){
-    //       Router.push('/admin')
-    //     }
-    // },[cookies.Authentications])
+    useEffect(()=>{
+        if(!cookies.Authentications){
+          Router.push('/admin')
+        }
+    },[cookies.Authentications])
     return (
 
       <AdminPage>

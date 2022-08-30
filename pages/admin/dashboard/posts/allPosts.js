@@ -1,5 +1,9 @@
+
+import { useEffect } from "react";
 import AdminPage from "../../../../admin/layout/adminPage"
 import AllPagesPosts from './../../../../admin/components/contentComp/contentPages/posts/allposts'
+import { useCookies } from "react-cookie";
+import { useRouter } from "next/router";
 
 
     const data= [
@@ -10,7 +14,15 @@ import AllPagesPosts from './../../../../admin/components/contentComp/contentPag
      
 export default function AllPosts(){
 
-
+    const Router=useRouter()
+    const [cookies, setCookie] = useCookies();
+  
+    useEffect(()=>{
+        if(!cookies.Authentications){
+          Router.push('/admin')
+        }
+    },[cookies.Authentications])
+  
 
     return (
         <AdminPage>

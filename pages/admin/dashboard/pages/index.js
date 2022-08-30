@@ -1,14 +1,28 @@
+import { useEffect } from "react";
+import { useCookies } from "react-cookie";
+import { useRouter } from "next/router";
+
+
 import dynamic from "next/dynamic"
 
 const AdminPage =dynamic(()=>import('../../../../admin/layout/adminPage'))
 const AllPages =dynamic(()=>import('../../../../admin/components/contentComp/contentPages/pages/pages'))
 
 
-export default function allPages(props){
+export default function AllPage(props){
+
+  const Router=useRouter()
+  const [cookies, setCookie] = useCookies();
+
+  useEffect(()=>{
+      if(!cookies.Authentications){
+        Router.push('/admin')
+      }
+  },[cookies.Authentications])
     return (
         <AdminPage>
         <AllPages pages={props.pages}/>
-    </AdminPage>
+        </AdminPage>
     )
 }
 

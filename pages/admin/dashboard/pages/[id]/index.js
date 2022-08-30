@@ -1,15 +1,24 @@
-import { useRouter } from "next/router";
 
+import { useEffect } from "react";
 import AdminPage from "../../../../../admin/layout/adminPage";
-
+import { useRouter } from "next/router";
+import { useCookies } from "react-cookie";
 import PageDetails from "../../../../../admin/components/contentComp/contentPages/pages/pageDetails";
 
 export default  function PageID(props){
     console.log(props)
 
-    const Router=useRouter()
     // console.log(Router.query.id);
 
+    
+        const Router=useRouter()
+        const [cookies, setCookie] = useCookies();
+    
+        useEffect(()=>{
+            if(!cookies.Authentications){
+              Router.push('/admin')
+            }
+        },[cookies.Authentications])
 
     return (
         <AdminPage>
