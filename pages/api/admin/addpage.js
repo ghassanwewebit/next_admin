@@ -1,13 +1,13 @@
 const { connectToDatabase } = require('../../../db/mongodb');
 const ObjectId = require('mongodb').ObjectId;
-import middleWareAuth from './middleWareAuth.js/Auth'
+import {middleWareAuth} from './middleWareAuth.js/Auth.js'
  
 
-export default  (async function handler(req,res){
-    console.log("req.cookies",req.headers)
-
+export default (async function handler(req,res){
+    console.log("req.cookiesssss",req.headers)
         if(req.method=="POST"){
-    
+            middleWareAuth(req,res)
+
             try {
                 // connect to the database
                 let { db } = await connectToDatabase();
@@ -49,8 +49,8 @@ export default  (async function handler(req,res){
                 });
             }
         }else if(req.method==="DELETE"){
-            
-            console.log("ASdasdassadsdasddas",req.query.id)
+            middleWareAuth(req,res)
+
         try {
             // Connecting to the database
             let { db } = await connectToDatabase();

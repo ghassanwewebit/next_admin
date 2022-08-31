@@ -6,6 +6,7 @@ import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
 import { FileUpload } from 'primereact/fileupload';
 import { InputTextarea } from 'primereact/inputtextarea';
+import FileUploadimage from './uploadFIles' 
 
 
 
@@ -24,13 +25,14 @@ export default function AddPosts(props){
     useEffect(()=>{
         const pageProps=[]
         const getPagesNameFromPRops= props.pages.map(page=>{
-        pageProps.push({label:page.page_name, value:page.page_name})
-
+            page.page_name === undefined || page.page_name===null?null: pageProps.push({label:page.page_name, value:page.page_name})
     })
     setPagesName( pageProps)
 },[props.pages])
 
-
+const onUpload = () => {
+    toast.current.show({severity: 'info', summary: 'Success', detail: 'File Uploaded'});
+}
     const postStatusOptins=[
         {label:"Active" ,value:"active"},
         {label:"not Active",value:"not active"}
@@ -142,12 +144,14 @@ export default function AddPosts(props){
                             <div className="col-12 w-100 px-4 py-2">
                                 <label htmlFor="post-upload" className="form-label mr-5">Post Files</label>
                                 <div className="card">
-                                    <FileUpload name="image" id="post-upload" chooseOptions={chooseOptions} uploadOptions={uploadOptions} cancelOptions={cancelOptions}
+                                    {/* <FileUpload name="image" id="post-upload" chooseOptions={chooseOptions} uploadOptions={uploadOptions} cancelOptions={cancelOptions}
                                      
                                     emptyTemplate={
                                     <p className="m-0">Drag and drop files to here to upload.</p>
                                     }  accept="image/*" maxFileSize={10000000}
-                                      />
+                                      /> */}
+                            <FileUpload name="demo[]" url="./../../../../../public/upload.php" onUpload={onUpload} multiple accept="image/*" maxFileSize={1000000}
+                            emptyTemplate={<p className="m-0">Drag and drop files to here to upload.</p>} />
                                 </div>
                             </div>
                             <div className="col-12 px-4 py-2 w-100">

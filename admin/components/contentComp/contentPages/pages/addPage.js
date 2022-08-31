@@ -67,7 +67,7 @@ const AddPageSubmitHandler= async(e)=>{
    setSectionNumber('')
   });
   let result =loginApi;
-  if(result.data.success===true){
+  if(result?.data?.success===true){
     showSuccess()
    setpageName('')
    setDescriptions('')

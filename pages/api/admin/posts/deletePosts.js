@@ -1,11 +1,13 @@
 const { connectToDatabase } = require('../../../../db/mongodb');
 const ObjectId = require('mongodb').ObjectId;
+import {middleWareAuth} from './../middleWareAuth.js/Auth'
 
 export default async function handler(req,res){
     console.log("req.cookies",req.headers)
 
         if(req.method=="DELETE"){
-    
+            middleWareAuth(req,res)
+
             try {
                 // connect to the database
               
