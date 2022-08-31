@@ -1,19 +1,30 @@
 import Link from "next/link"
 import { useState } from "react"
-
+import { useDispatch } from "react-redux"
+import {BreadCrumbActions} from "../../store/BreadcrumbStore"
 export default function SideBarItems(props){
-
+const dispatch=useDispatch()
 const [showSideBar,setShowSideBar]=useState(false)
 const toggelsideBarHandler=()=>{
     setShowSideBar(prevState=>!prevState)
 }
 
+// const addBreadcrumHandler=()=>{
+//   console.log("child")
+// // dispatch(BreadCrumbActions.BreadCrumbHandler([{label:props.sidebar.title},{label:child.title}]))
+// }
+
 const sidebarChildren=()=>{
+  const addBreadcrumHandler=(child)=>{
+    console.log("child")
+    dispatch(BreadCrumbActions.BreadCrumbHandler([{label:props.sidebar.title},{label:child.title}]))
+
+  }
     return props.sidebar.childrens.map(child=>{
         return (
             <li className="nav-item" key={child.title}>
             <Link href={child.path} >
-              <a className="nav-link">
+              <a className="nav-link" onClick={e=>addBreadcrumHandler(child)}>
               <i className={child.icon}></i>
               <p>{child.title}</p>
               </a>

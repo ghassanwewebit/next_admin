@@ -1,9 +1,11 @@
 import Image from "next/image"
 import defaultImage from './../../../../public/img/defaultImage.jpeg'
 import Link from "next/link"
+import { useSelector } from "react-redux";
 
 export default function   ProfilePageContent(){
-
+  const usersData=useSelector(State=>State.auth.usersData)
+console.log(usersData)
 
 
     return (
@@ -33,27 +35,26 @@ export default function   ProfilePageContent(){
             <div className="card card-primary card-outline">
               <div className="card-body box-profile">
                 <div className="text-center">
-                    <Image src={defaultImage} width={150}/>
+                    <Image src={defaultImage} width={150} alt="peronal-photo"/>
          
                 </div>
 
-                <h3 className="profile-username text-center">Admin</h3>
+                <h3 className="profile-username text-center">{usersData.name}</h3>
 
-                <p className="text-muted text-center">Admin user</p>
+                <p className="text-muted text-center">Current user</p>
 
                 <ul className="list-group list-group-unbordered mb-3">
                   <li className="list-group-item">
-                    <b>name</b> <a className="float-right">1,322</a>
+                    <b>name</b> <a className="float-right">{usersData.name}</a>
                   </li>
                   <li className="list-group-item">
-                    <b>email</b> <a className="float-right">543</a>
+                    <b>email</b> <a className="float-right">{usersData.email}</a>
                   </li>
                   <li className="list-group-item">
-                    <b>phone</b> <a className="float-right">13,287</a>
+                    <b>phone</b> <a className="float-right">00001222335</a>
                   </li>
                 </ul>
-                <a>
-                <Link href="/admin/dashboard/contactUs" className="btn btn-primary btn-block"><b>Follow</b></Link></a>
+
               </div>
             </div>
 

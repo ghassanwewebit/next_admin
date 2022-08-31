@@ -94,3 +94,10 @@
     }
 }
                  
+.main-header .p-breadcrumb-chevron{
+    font-size: 12px !important;
+}
+.main-header  .p-menuitem-link span{
+    font-size: 15px !important;
+
+}

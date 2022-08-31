@@ -6,13 +6,14 @@ import {  styleActions } from "../../store/styleStore"
 import Link from "next/link";
 import RightSideBar from "../SideBar/rightSideBar";
 import { Badge } from 'primereact/badge';
+import { BreadCrumb } from 'primereact/breadcrumb';
 
 export default function HeaderNavbar(props){
   const [visibleRight, setVisibleRight] = useState(false);
   const [togglefullscreen,setToggleFullScreen]=useState(false)
-
   const dispatch=useDispatch()
   const style=useSelector(state=>state.style)
+  const items=useSelector(state=>state.BreadCrumb).items
 
   const navBarToggle=()=>{
     dispatch(styleActions.toggleStyle())
@@ -22,19 +23,16 @@ export default function HeaderNavbar(props){
     setVisibleRight(value)
   }
 
+const home = { icon: 'pi pi-home', url: '/admin/dashboard' }
     return(
 
         <nav className="main-header navbar navbar-expand navbar-white navbar-light" style={{marginLeft:style.style?'250px':'0'}}>
         <ul className="navbar-nav">
-          <li className="nav-item " onClick={navBarToggle}>
+          <li className="nav-item d-flex justify-content-center align-items-center " onClick={navBarToggle}>
             <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars"></i></a>
           </li>
-          <li className="nav-item d-none d-sm-inline-block">
-            <Link href="/admin" className="nav-link ">Home </Link>
-          </li>
-          <li className="nav-item d-none d-sm-inline-block ms-5">
-            <Link href="#" className="nav-link ms-5"> / Contact</Link>
-          </li>
+          <BreadCrumb model={items} home={home} className="border-0 fs-6"/>
+
         </ul>
     
         <ul className="navbar-nav ml-auto">

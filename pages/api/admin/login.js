@@ -26,9 +26,11 @@ export default async function handler(req, res) {
             .findOne({
                 email:email,
             })
+            console.log("posts",posts)
             const payload = {
                 id:posts.id,
-                email:posts.email
+                email:posts.email,
+                name:posts.name
             }
             if(!posts){
                 return res.status(400).json("there is no email")
